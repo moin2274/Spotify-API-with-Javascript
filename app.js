@@ -1,7 +1,7 @@
 const APIController = (function() {
     
-    const clientId = 'PASTE YOUR CLIENT ID HERE';
-    const clientSecret = 'PASTE YOUR CLIENT SECRET HERE';
+    const clientId = 'ef75e0459e234ac2ad68371ee7972bba';
+    const clientSecret = '58d813183785498b81059659aede369f';
 
     // private methods
     const _getToken = async () => {
@@ -21,12 +21,13 @@ const APIController = (function() {
     
     const _getGenres = async (token) => {
 
-        const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=sv_US`, {
+        const result = await fetch(`https://api.spotify.com/v1/browse/categories?locale=en_IN`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
         });
 
         const data = await result.json();
+        console.log(data.categories.items[1])
         return data.categories.items;
     }
 
